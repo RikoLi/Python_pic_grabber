@@ -9,8 +9,6 @@ keyword = input('Input keyword to search: ')
 keyword = str(keyword)
 pages = input('How many pages do you want to search?(About 60p per-page): ')
 pages = int(pages)
-save_dir = input('Save to (Folder must exist!): ')
-save_dir = str(save_dir)
 print('Busy...')
 url = 'http://image.baidu.com/search/flip'
 page_index = 1
@@ -45,7 +43,7 @@ img_counter = 0
 for each in objURL_list:
     try:
         img_page = rq.get(each, timeout=30)
-        with open('./catch_pics/'+save_dir+'/'+str(img_counter)+'.jpg', 'wb') as img:
+        with open('./'+str(img_counter)+'.jpg', 'wb') as img:
             img.write(img_page.content)
         print(str(img_counter+1)+' of '+str(len(objURL_list))+' pics'+' are done!')
     except rq.exceptions.ConnectionError as e:

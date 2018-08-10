@@ -72,11 +72,10 @@ for each in new_img_url:
         with open('./'+folder_name+'/'+str(img_counter)+'.jpg', 'wb') as img:
             img.write(img_page.content)
         print(str(img_counter+1)+' of '+str(len(new_img_url))+' pics'+' are done!')
+        img_counter += 1
     except rq.exceptions.ConnectionError as e:
         e_str = str(e)
         print('Error type: %s! Jump to next image URL!' %e_str)
-    finally:
-        img_counter += 1
 print('---------------------------------')
-print('Done with %d pics!' %img_counter)
+print('Done with %d/%d pics!' %(img_counter, len(new_img_url)))
 os.system('pause')
