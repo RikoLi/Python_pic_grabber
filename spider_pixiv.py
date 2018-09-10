@@ -93,7 +93,7 @@ def download(img_url_list, pid_list, filename):
 # Login guide
 print('---Sign in Pixiv---')
 username = str(input('Username: '))
-password = getpass.getpass('Password(invisible): ')
+password = getpass.win_getpass('Password(invisible): ')
 
 # Simulate login
 res = login(username, password)
